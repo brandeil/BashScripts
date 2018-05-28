@@ -55,3 +55,5 @@ if [ ${src_files} -eq ${arch_files} ]; then
 else
 	echo "Backup of $input failed"
 fi
+
+#for i in $( ls ); do echo "${i} has $( wc -m < ${i} )"; done
