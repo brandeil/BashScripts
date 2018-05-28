@@ -1,8 +1,18 @@
 #!/bin/bash
 
 # back up a users home directory to /tmp
+if [ -z $1 ]; then
+	user=$(whoami)
+else
+	if [ ! -d "/home/$1" ]; then
+		echo "Requested $1 user home directory doesn't exist."
+		exit 1
+	fi
+	user=$1
+fi
 
-user=$(whoami)
+echo "User is ${user}"
+
 input=/home/${user}
 output=/tmp/${user}_home_$(date +%Y-%m-%d_%H%M%S).tar.gz
 
