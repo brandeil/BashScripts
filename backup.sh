@@ -62,5 +62,9 @@ function backup {
 
 for directory in $*; do
 	backup $directory
+	let all=$all+$arch_files+$arch_directories
 done;
 
+if [[ $all -ne 0 ]]; then
+	echo "TOTAL FILES AND DIRECTORIES: $all"
+fi
